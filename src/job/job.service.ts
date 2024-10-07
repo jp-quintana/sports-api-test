@@ -7,7 +7,7 @@ import * as path from 'path';
 export class JobService {
   private readonly filePath = path.join(__dirname, '../../src/data/jobs.json');
 
-  @Cron(CronExpression.EVERY_10_SECONDS)
+  @Cron(CronExpression.EVERY_MINUTE)
   handleCron() {
     const fileContents = fs.readFileSync(this.filePath, 'utf8');
     const jobsArray = JSON.parse(fileContents);
